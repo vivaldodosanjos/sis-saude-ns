@@ -1,0 +1,5 @@
+{
+  "name": "SISMUN - Sistema Municipal de Agendamento",
+  "description": "Sistema de gestão de agendamentos para a secretaria de saúde, incluindo regulação e equipes multiprofissionais (E-mult).",
+  "requestFramePermissions": []
+}
