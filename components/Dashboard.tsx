@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { User, AppointmentType } from '../types';
 import { RegulacaoModule } from './RegulacaoModule';
@@ -10,9 +9,10 @@ interface DashboardProps {
   user: User;
   allUsers: User[];
   onUpdateUsers: (users: User[]) => void;
+  onDeleteUser: (userId: string) => void;
 }
 
-export const Dashboard: React.FC<DashboardProps> = ({ user, allUsers, onUpdateUsers }) => {
+export const Dashboard: React.FC<DashboardProps> = ({ user, allUsers, onUpdateUsers, onDeleteUser }) => {
   const [activeModule, setActiveModule] = useState<'HOME' | 'REGULACAO' | 'EMULT' | 'USERS'>('HOME');
   const [selectedSpecialty, setSelectedSpecialty] = useState<AppointmentType | undefined>(undefined);
 
@@ -73,6 +73,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ user, allUsers, onUpdateUs
           currentUser={user} 
           users={allUsers} 
           onUpdateUsers={onUpdateUsers} 
+          onDeleteUser={onDeleteUser} 
         />
       </div>
     );

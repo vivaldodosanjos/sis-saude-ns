@@ -6,9 +6,10 @@ interface UserManagementModuleProps {
   currentUser: User;
   users: User[];
   onUpdateUsers: (users: User[]) => void;
+  onDeleteUser: (userId: string) => void;
 }
 
-export const UserManagementModule: React.FC<UserManagementModuleProps> = ({ currentUser, users, onUpdateUsers }) => {
+export const UserManagementModule: React.FC<UserManagementModuleProps> = ({ currentUser, users, onUpdateUsers, onDeleteUser }) => {
   const [isAdding, setIsAdding] = useState(false);
   const [editingUser, setEditingUser] = useState<User | null>(null);
   const [alert, setAlert] = useState<{ type: 'success' | 'error', msg: string } | null>(null);
@@ -61,10 +62,7 @@ export const UserManagementModule: React.FC<UserManagementModuleProps> = ({ curr
       showAlert('error', 'Você não pode excluir seu próprio usuário!');
       return;
     }
-    if (window.confirm('Deseja realmente remover o acesso deste usuário?')) {
-      onUpdateUsers(users.filter(u => u.id !== id));
-      showAlert('success', 'Usuário removido do sistema.');
-    }
+    onDeleteUser(id);
   };
 
   const closeModal = () => {
