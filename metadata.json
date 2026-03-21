@@ -1,0 +1,5 @@
+{
+  "name": "SISMUN - Sistema Municipal de Saúde",
+  "description": "Sistema de agendamento de pacientes da secretaria de saúde, incluindo Regulação e E-mult.",
+  "requestFramePermissions": []
+}
